@@ -10,7 +10,7 @@ const client = axios.create({
 client.interceptors.request.use((config) => {
   const token = localStorage.getItem("academy_token");
   if (token) {
-    config.headers.Authorization = `Token ${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });

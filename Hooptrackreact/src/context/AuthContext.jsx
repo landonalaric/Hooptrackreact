@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
 
     try {
       const res = await client.post(endpoints.login, payload);
-      const { token: authToken, user_id, role, username: uname, academy } = res.data;
+      const { access: authToken, user_id, role, username: uname, academy } = res.data;
       const userObj = { id: user_id, role, username: uname, academy };
       localStorage.setItem("academy_token", authToken);
       localStorage.setItem("academy_user", JSON.stringify(userObj));
